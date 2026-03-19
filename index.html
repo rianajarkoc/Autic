@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RC Smart Car</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("anMjJMLKoYlDkDlQM");
+})();
+</script>
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#f4f4f4;
+color:#333;
+display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:160px;
+height:100vh;
+background:linear-gradient(180deg,#fc2323,#ff25b6);
+color:white;
+position:fixed;
+padding:30px 15px;
+}
+
+.logo{
+font-size:20px;
+font-weight:600;
+margin-bottom:30px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+margin:12px 0;
+font-size:14px;
+font-weight:500;
+}
+
+/* CONTENT */
+
+.main{
+margin-left:160px;
+width:calc(100% - 160px);
+}
+
+/* HERO */
+
+.hero{
+padding:80px 60px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.hero h1{
+font-size:38px;
+color:#fc2323;
+}
+
+.hero img{
+width:100%;
+border-radius:16px;
+}
+
+/* SECTION */
+
+section{
+padding:70px 60px;
+}
+
+h2{
+color:#fc2323;
+margin-bottom:25px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+/* ACTIVITIES */
+
+.aktivnost{
+display:grid;
+grid-template-columns:300px 1fr;
+gap:30px;
+margin-bottom:40px;
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.slider{
+position:relative;
+height:100%;
+}
+
+.slider img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:none;
+}
+
+.slider img.active{
+display:block;
+}
+
+.slider button{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#fc2323;
+color:white;
+border:none;
+padding:6px 12px;
+cursor:pointer;
+}
+
+.prev{left:10px;}
+.next{right:10px;}
+
+.tekst{
+padding:25px;
+}
+
+.tekst h3{
+color:#fc2323;
+margin-top:0;
+}
+
+/* ADMIN (SAKRIVEN) */
+
+#admin{
+display:none;
+}
+
+/* CONTACT */
+
+#kontakt{
+background:linear-gradient(120deg,#fc2323,#ff25b6);
+color:white;
+}
+
+#kontakt form{
+background:white;
+padding:30px;
+border-radius:14px;
+max-width:450px;
+margin:auto;
+}
+
+input,textarea{
+width:100%;
+padding:10px;
+margin-bottom:12px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+input[type=submit]{
+background:#fc2323;
+color:white;
+border:none;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+background:#111;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">RC Smart Car</div>
+
+<a href="#proizvod">Proizvod</a>
+<a href="#aktivnosti">Aktivnosti</a>
+<a href="#kontakt">Kontakt</a>
+
+</div>
+
+<div class="main">
+
+<div class="hero">
+
+<div>
+
+<h1>Pametni autić na daljinski</h1>
+
+<p>
+Pametni RC autić predstavlja inovativni projekat koji kombinuje
+Arduino mikrokontroler, motore i senzore kako bi se napravio
+inteligentan robot kojim korisnik može upravljati na daljinu.
+</p>
+
+<p>
+Ovaj projekat omogućava učenicima da nauče osnove robotike,
+programiranja i elektronike kroz praktičan rad.
+</p>
+
+</div>
+
+<img src="autologo.jpg">
+
+</div>
+
+<section id="proizvod">
+
+<h2>Opis sistema</h2>
+
+<div class="card">
+
+<p>
+Autić koristi Arduino mikrokontroler koji upravlja radom
+DC motora putem motor driver modula.
+Komande se šalju pomoću daljinskog upravljača ili
+Bluetooth komunikacije.
+</p>
+
+<p>
+Sistem omogućava kretanje naprijed, nazad,
+lijevo i desno uz preciznu kontrolu.
+Dodatni senzori omogućavaju detekciju prepreka
+i povećavaju sigurnost sistema.
+</p>
+
+<p>
+Projekat ima veliku edukativnu vrijednost jer
+učenicima omogućava razumijevanje rada senzora,
+mikrokontrolera i automatizacije.
+</p>
+
+</div>
+
+</section>
+
+<section id="aktivnosti">
+
+<h2>Aktivnosti projekta</h2>
+
+<div id="aktivnostiContainer"></div>
+
+</section>
+
+<section id="admin">
+
+<h2>Dodavanje aktivnosti</h2>
+
+<input id="naslov" type="text" placeholder="Naslov aktivnosti">
+<textarea id="opis" rows="5" placeholder="Opis aktivnosti"></textarea>
+<input id="slike" type="file" multiple>
+<button id="insert">Dodaj aktivnost</button>
+
+</section>
+
+<section id="kontakt">
+
+<h2 style="text-align:center">Kontakt</h2>
+
+<form id="contact-form">
+
+<input type="hidden" name="contact_number">
+
+<input type="text" name="user_name" placeholder="Ime i prezime" required>
+<input type="email" name="user_email" placeholder="Email" required>
+<textarea name="message" placeholder="Poruka" required></textarea>
+
+<input type="submit" value="Pošalji">
+
+</form>
+
+<p id="emailStatus"></p>
+
+</section>
+
+<footer>
+© <span id="year"></span> RC Smart Car Project
+</footer>
+
+</div>
+
+<script>
+document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+<script>
+
+window.onload = function(){
+
+const status = document.getElementById("emailStatus");
+
+document.getElementById("contact-form").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+this.contact_number.value = Math.random()*100000|0;
+
+emailjs.sendForm("service_52xiywv","template_143v4nb",this)
+
+.then(()=>{
+status.style.display="block";
+status.style.color="green";
+status.innerHTML="Email uspješno poslan";
+this.reset();
+},
+
+()=>{
+status.style.display="block";
+status.style.color="red";
+status.innerHTML="Greška pri slanju";
+});
+
+});
+
+}
+
+</script>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs }
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyD4o6PTl8Oi69oYbnR1nuv3ARpKH4zLux8",
+  authDomain: "sismis-55233.firebaseapp.com",
+  projectId: "sismis-55233",
+  storageBucket: "sismis-55233.firebasestorage.app",
+  messagingSenderId: "258918190396",
+  appId: "1:258918190396:web:650e2a83358e651df4e239"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const container = document.getElementById("aktivnostiContainer");
+
+function createHTML(data){
+
+const imgs = (data.slike||[]).map((u,i)=>`<img src="${u}" class="${i==0?'active':''}">`).join("");
+const txt = (data.tekst||[]).map(p=>`<p>${p}</p>`).join("");
+
+return `
+<div class="aktivnost">
+<div class="slider">
+${imgs}
+<button class="prev">‹</button>
+<button class="next">›</button>
+</div>
+<div class="tekst">
+<h3>${data.naslov}</h3>
+${txt}
+</div>
+</div>
+`;
+
+}
+
+function initSliders(){
+
+document.querySelectorAll(".slider").forEach(sl=>{
+
+const imgs = sl.querySelectorAll("img");
+let i=0;
+
+sl.querySelector(".next").onclick=()=>{i=(i+1)%imgs.length;show();}
+sl.querySelector(".prev").onclick=()=>{i=(i-1+imgs.length)%imgs.length;show();}
+
+function show(){
+imgs.forEach(im=>im.classList.remove("active"));
+imgs[i].classList.add("active");
+}
+
+});
+
+}
+
+async function load(){
+
+const snap=await getDocs(collection(db,"aktivnosti"));
+snap.forEach(d=>container.innerHTML+=createHTML(d.data()));
+
+initSliders();
+
+}
+
+load();
+
+</script>
+
+</body>
+</html>
